@@ -1,5 +1,5 @@
 from playwright.async_api import expect
-from pages.homepage import HomePage
+from pages.home_page import HomePage
 from utilities.auth_helpers import goto_url,login,logout
 
 async def test_goto_url(page):
