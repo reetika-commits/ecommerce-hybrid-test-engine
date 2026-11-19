@@ -1,4 +1,4 @@
-from playwright.async_api import async_playwright
+from playwright.async_api import async_playwright, expect
 
 async def test_demoblaze_entries(api_context):
     
@@ -17,4 +17,8 @@ async def test_demoblaze_entries(api_context):
     assert product is not None, "Product ID 1 not found"
     assert product["title"].strip()
             
-     
+async def test_demoblaze_title(page):
+    url="https://www.demoblaze.com/"
+    await page.goto(url)
+
+    await expect (page).to_have_title("STORE")
